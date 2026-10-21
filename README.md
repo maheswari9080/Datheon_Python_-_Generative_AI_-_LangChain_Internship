@@ -14,11 +14,27 @@ A production-grade, enterprise-ready AI Portfolio Suite designed for rigorous te
 
 | Subsystem | Core Stack | Primary Architecture Pattern | Default Port / Access |
 | :--- | :--- | :--- | :--- |
-| **Central Portal** | HTML5 / CSS3 / Vanilla JS | Research Workbench Laboratory Dashboard | `index.html` |
+| **Central Portal** | HTML5 / CSS3 / Vanilla JS | Research Workbench Laboratory Dashboard | `index.html` / GitHub Pages |
+| **Unified Cloud App** | Streamlit, Multi-Task Suite | Unified 4-Task Host for Streamlit Community Cloud | `streamlit_app.py` |
 | **Task 1: Structured Extractor** | Pydantic v2, Gemini, OpenAI, Streamlit | Bounded Self-Corrective Feedback Repair Loops | `http://localhost:8501` |
 | **Task 2: Grounded Document RAG** | ChromaDB, pypdf, LangChain, Cosine Sim | Dense Semantic Retrieval with Citation Attribution | `http://localhost:8502` |
 | **Task 3: Autonomous AI Agent** | ReAct Loop, AST Math, Sandboxed FS, DDGS | Defense-in-Depth Tool Calling & Audit Telemetry | Terminal Console CLI |
 | **Task 4: Conversation Studio** | Streamlit Chat, Session State, Bridges | Streaming Cadence with RAG & Agent Bridges | `http://localhost:8504` |
+
+---
+
+## 🌐 Cloud & GitHub Hosting
+
+1. **GitHub Pages (Live Static Portal)**:
+   - Configured via [`.github/workflows/pages.yml`](.github/workflows/pages.yml).
+   - Deploys automatically to: `https://maheswari9080.github.io/Python-Generative-AI-LangChain-Internship/`
+2. **Streamlit Community Cloud (Live Free Web App for All 4 Tasks)**:
+   - Host all 4 tasks at a live public URL in 1 click at [share.streamlit.io](https://share.streamlit.io/) with main file [`streamlit_app.py`](streamlit_app.py).
+   - Complete step-by-step instructions in [Cloud & GitHub Hosting Guide](docs/hosting.md).
+3. **GitHub Actions CI/CD**:
+   - Automated testing pipeline on Python 3.11 & 3.12 via [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
+4. **Containerized Deployment**:
+   - Production [`Dockerfile`](Dockerfile) and [`docker-compose.yml`](docker-compose.yml) included.
 
 ---
 
