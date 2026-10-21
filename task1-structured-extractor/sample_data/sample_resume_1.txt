@@ -1,0 +1,41 @@
+Elena Rostova
+Boston, MA | (555) 234-5678 | elena.rostova@datasphere.ai
+LinkedIn: linkedin.com/in/elena-rostova-ai | GitHub: github.com/erostova | Portfolio: https://erostova.ai
+
+PROFESSIONAL SUMMARY
+Staff AI Systems Architect with 7+ years of experience spearheading distributed machine learning infrastructure, production RAG pipelines, and autonomous agent orchestration for enterprise clients.
+
+EDUCATION
+Massachusetts Institute of Technology (MIT) - Cambridge, MA
+Master of Science in Artificial Intelligence & Computer Science | 2018 - 2020
+GPA: 3.92 / 4.0
+
+University of Washington - Seattle, WA
+Bachelor of Science in Computer Science | 2014 - 2018
+
+EXPERIENCE
+Staff AI Architect | DataSphere Systems | Boston, MA
+January 2021 - Present
+- Designed and benchmarked a multi-tenant hybrid semantic search engine combining BM25 sparse retrieval and dense vector indexing with reciprocal rank fusion.
+- Built an autonomous multi-tool agent cluster that automated 65% of Tier-2 customer diagnosis tickets.
+- Reduced model inference memory footprint by 35% through INT8 quantization and ONNX runtime integration.
+
+Senior Machine Learning Engineer | NeuralScale AI | Cambridge, MA
+June 2019 - December 2020
+- Developed asynchronous FastAPI streaming microservices serving LLM completions to 200,000+ active enterprise users.
+- Automated data validation using Pydantic v2 schemas and strict regression test suites.
+
+TECHNICAL SKILLS
+Languages: Python, C++, TypeScript, SQL
+Frameworks & Libraries: PyTorch, LangChain, FastAPI, Streamlit, HuggingFace, Pydantic, NumPy, Pandas
+Infrastructure: Docker, Kubernetes, ChromaDB, PostgreSQL, Redis, AWS, Google Cloud Platform
+
+SOFT SKILLS
+Technical Architecture Leadership, Cross-Functional Alignment, Engineering Mentorship, Agile Delivery
+
+CERTIFICATIONS
+- Google Cloud Certified - Professional Machine Learning Engineer (2023)
+- AWS Certified Solutions Architect - Associate (2022)
+
+LANGUAGES
+English (Native), German (Professional Working)

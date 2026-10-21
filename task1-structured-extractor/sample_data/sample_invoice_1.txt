@@ -1,0 +1,35 @@
+INVOICE: #INV-90214
+DATE: October 18, 2026
+PAYMENT TERMS: Net 30
+DUE DATE: 2026-11-17
+
+FROM:
+Nexus Cloud Architectures LLC
+742 Evergreen Terrace, Seattle, WA 98101
+Tax ID: US-47-9201842
+contact@nexuscloud.io
+
+BILL TO:
+Apex Enterprise Systems Inc.
+1200 Financial Plaza, New York, NY 10005
+accounts-payable@apexsystems.com
+
+LINE ITEMS:
+1. High-Throughput Vector Pipeline Implementation
+   Quantity: 30.0 hours
+   Unit Rate: $200.00
+   Amount: $6,000.00
+
+2. Enterprise Security & IAM Audit
+   Quantity: 10.0 hours
+   Unit Rate: $250.00
+   Amount: $2,500.00
+
+FINANCIAL SUMMARY:
+Subtotal: $8,500.00
+Tax Rate: 8.5%
+Tax Amount: $722.50
+Discount: $0.00
+TOTAL DUE: $9,222.50 USD
+
+Please wire transfer payment to Silicon Valley Bank, Account #99281-209.

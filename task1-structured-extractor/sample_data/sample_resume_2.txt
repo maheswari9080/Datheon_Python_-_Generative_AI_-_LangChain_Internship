@@ -1,0 +1,31 @@
+Marcus Vance
+Austin, TX | marcus.vance@cloudnative.dev | +1 512 555 8920
+GitHub: github.com/mvance-cloud | LinkedIn: linkedin.com/in/marcus-vance-dev
+
+SUMMARY
+Results-driven Full Stack Python & Cloud Software Engineer with 5 years of engineering experience developing high-reliability APIs, event-driven pipelines, and developer tooling.
+
+EDUCATION
+University of Texas at Austin
+Bachelor of Science in Electrical & Computer Engineering | 2015 - 2019
+
+WORK EXPERIENCE
+Senior Backend Engineer | CloudScale Networks | Austin, TX
+March 2022 - Present
+- Engineered high-throughput REST and WebSocket APIs using Python 3.12, asyncio, and Uvicorn.
+- Implemented automated database migration pipelines and PostgreSQL indexing strategies reducing p99 latency to under 30ms.
+
+Software Engineer | Austin FinTech Solutions | Austin, TX
+July 2019 - February 2022
+- Created automated invoice reconciliation engine with Pydantic schema validation.
+- Authored 200+ unit and integration test fixtures using Pytest, boosting branch test coverage to 92%.
+
+TECHNICAL SKILLS
+Python, JavaScript, Go, FastAPI, Django, Flask, SQLAlchemy, Docker, Terraform, Git, Linux, Pytest
+
+CERTIFICATIONS
+- HashiCorp Certified: Terraform Associate
+- Certified Kubernetes Application Developer (CKAD)
+
+LANGUAGES
+English, French

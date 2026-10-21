@@ -1,0 +1,23 @@
+QUANTUM COMPUTE CORP
+350 Mission Street, San Francisco, CA 94105
+VAT Registration: US-991204812
+
+TAX INVOICE: QCC-2026-8819
+Invoice Date: 2026-09-01
+Due Date: 2026-09-15
+Payment Status: Due on Receipt
+
+Customer:
+Horizon Media Labs Ltd.
+14 Tottenham Court Road, London W1T 1JY, United Kingdom
+
+Items:
+- Dedicated GPU Cluster Node (H100 NVLink) | Qty: 2.0 months | Price: $3,200.00 | Total: $6,400.00
+- Multi-Model Inference License | Qty: 1.0 license | Price: $1,500.00 | Total: $1,500.00
+- Automated Snapshot Storage (10TB) | Qty: 10.0 TB | Price: $25.00 | Total: $250.00
+
+Subtotal: $8,150.00
+Tax: $0.00 (Reverse Charge mechanism applies)
+Discount: $150.00 (Partner Early Access)
+Total Amount: $8,000.00 USD
+Payment Terms: Wire Transfer / Stripe ACH
