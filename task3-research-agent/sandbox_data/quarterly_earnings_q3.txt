@@ -1,0 +1,21 @@
+# NEXUS TECHNOLOGIES Q3 2026 EARNINGS REPORT
+Document Reference: SEC-10Q-2026-Q3
+Published: October 10, 2026
+
+1. FINANCIAL HIGHLIGHTS
+- Total Q3 Revenue: $14,250,000 USD (up from $11,400,000 in Q2)
+- Cloud Infrastructure Gross Margin: 68.5%
+- Research & Development Expenditures: $3,200,000 USD
+- Capital Expenditures (GPU Clusters): $2,100,000 USD
+- Operating Income: $4,850,000 USD
+- Effective Tax Rate: 21.0%
+
+2. OPERATIONAL METRICS
+- Enterprise Customer Count: 384 active accounts
+- Net Revenue Retention (NRR): 124%
+- Average Contract Value (ACV): $37,109 USD
+- GPU Compute Fleet Utilization: 91.4%
+
+3. FORWARD GUIDANCE FOR Q4
+- Projected Q4 Revenue Target: $16,500,000 USD
+- Targeted Operating Margin: 35.0%
