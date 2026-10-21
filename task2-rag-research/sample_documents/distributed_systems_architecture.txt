@@ -1,0 +1,22 @@
+# Distributed Systems Architecture & Consensus Specifications
+Published: October 2026
+Document ID: TECH-SPEC-2026-904
+
+## 1. Raft Consensus and Leader Election
+The system implements the Raft consensus algorithm for maintaining replicated state machine integrity across cluster nodes.
+A cluster consists of an odd number of nodes (typically 3, 5, or 7) to ensure high availability and prevent split-brain partition scenarios.
+During leader election, nodes transition between Follower, Candidate, and Leader states.
+Heartbeat intervals are strictly calibrated to 150ms to detect node crashes without triggering premature elections.
+Log replication requires a strict quorum of (N/2 + 1) active nodes before entries are committed to the durable state machine.
+
+## 2. Vector Indexing and Partitioning
+High-dimensional dense vectors (768 and 1536 dimensions) are partitioned using Hierarchical Navigable Small World (HNSW) graphs.
+The M parameter is configured to 16 bi-directional links per node, and efConstruction is set to 200 during index construction.
+Quantization: Vectors are compressed using INT8 Scalar Quantization, achieving a 75% memory footprint reduction while retaining 98.6% recall accuracy.
+Shard rebalancing operates automatically across storage nodes when any single shard exceeds 500,000 vectors.
+
+## 3. Write-Ahead Logging (WAL) and Durability
+All mutation requests (inserts, updates, deletes) are atomically recorded in a append-only Write-Ahead Log (WAL) before in-memory index updates.
+The WAL buffer is flushed to non-volatile SSD storage every 10 milliseconds using synchronous fsync system calls.
+In the event of ungraceful process termination, recovery reads the latest checkpoint snapshot and replays uncommitted WAL records.
+Snapshot compaction occurs during low-traffic windows (scheduled daily at 03:00 UTC).
