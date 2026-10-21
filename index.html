@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Research Workbench | Intelligent Systems Portfolio Suite</title>
+    <meta name="description" content="AI Research Workbench: A suite of four independent Python AI applications covering Structured Extraction, Grounded RAG, Autonomous ReAct Agents, and Conversational Studio.">
+    <style>
+        :root {
+            --bg-page: #f8fafc;
+            --bg-card: #ffffff;
+            --border-subtle: #e2e8f0;
+            --border-hover: #cbd5e1;
+            --text-heading: #0f172a;
+            --text-body: #334155;
+            --text-muted: #64748b;
+            --accent-teal: #0d9488;
+            --accent-teal-subtle: #f0fdfa;
+            --accent-blue: #2563eb;
+            --accent-blue-subtle: #eff6ff;
+            --accent-amber: #d97706;
+            --accent-emerald: #059669;
+            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --font-mono: "SF Mono", "JetBrains Mono", Consolas, "Courier New", monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-page);
+            color: var(--text-body);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Navigation Header */
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid var(--border-subtle);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            padding: 0.75rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-logo {
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--accent-teal), var(--accent-blue));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 800;
+            font-size: 1.1rem;
+            box-shadow: 0 2px 4px rgba(13, 148, 136, 0.2);
+        }
+
+        .brand-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            letter-spacing: -0.01em;
+        }
+
+        .brand-tag {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .header-status {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background-color: #ecfdf5;
+            border: 1px solid #a7f3d0;
+            border-radius: 9999px;
+            color: var(--accent-emerald);
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: var(--font-mono);
+        }
+
+        .status-pill::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-emerald);
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .header-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-left: 14px;
+            transition: color 0.15s ease;
+        }
+
+        .header-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem;
+        }
+
+        /* Overview Hero */
+        .hero {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2.25rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        .hero h1 {
+            font-size: 1.85rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--text-body);
+            max-width: 900px;
+            margin-bottom: 1.5rem;
+        }
+
+        .quick-launch-banner {
+            background-color: #0f172a;
+            color: #f8fafc;
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.9rem;
+        }
+
+        .copy-btn {
+            background-color: #334155;
+            color: #f8fafc;
+            border: 1px solid #475569;
+            padding: 6px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: all 0.15s ease;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--accent-teal);
+            border-color: var(--accent-teal);
+        }
+
+        /* Project Grid */
+        .grid-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 1.25rem;
+        }
+
+        .grid-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-heading);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(540px, 1fr));
+            gap: 1.75rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Project Card */
+        .project-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 1.75rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--border-hover);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+        }
+
+        .card-top {
+            margin-bottom: 1.25rem;
+        }
+
+        .card-badge-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+
+        .task-tag {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .tag-1 { background-color: var(--accent-blue-subtle); color: var(--accent-blue); }
+        .tag-2 { background-color: var(--accent-teal-subtle); color: var(--accent-teal); }
+        .tag-3 { background-color: #fef3c7; color: #b45309; }
+        .tag-4 { background-color: #f3e8ff; color: #7e22ce; }
+
+        .port-badge {
+            font-family: var(--font-mono);
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            background-color: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-body);
+            margin-bottom: 1rem;
+        }
+
+        /* Architecture Preview Pipeline */
+        .flow-preview {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 0.75rem 1rem;
+            margin-bottom: 1.25rem;
+            font-size: 0.82rem;
+            font-family: var(--font-mono);
+            color: #475569;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .flow-step {
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: var(--text-heading);
+            font-weight: 600;
+        }
+
+        .flow-arrow {
+            color: var(--text-muted);
+        }
+
+        /* Tech Pills */
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 1.25rem;
+        }
+
+        .tech-pill {
+            font-size: 0.78rem;
+            font-weight: 500;
+            padding: 2px 8px;
+            background-color: #f1f5f9;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            color: var(--text-muted);
+        }
+
+        /* Card Action Footer */
+        .card-footer {
+            border-top: 1px solid var(--border-subtle);
+            padding-top: 1.25rem;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .command-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 6px 10px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: #0f172a;
+        }
+
+        .action-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 6px;
+        }
+
+        .btn-launch {
+            flex: 1;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.15s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-teal);
+            color: #ffffff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0f766e;
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            color: var(--text-heading);
+            border: 1px solid #cbd5e1;
+        }
+
+        .btn-secondary:hover {
+            background-color: #f8fafc;
+            border-color: #94a3b8;
+        }
+
+        /* Audit & Verification Ledger */
+        .audit-section {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2.5rem;
+        }
+
+        .audit-section h2 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 1rem;
+        }
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        th, td {
+            padding: 10px 14px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        th {
+            background-color: #f8fafc;
+            font-weight: 600;
+            color: var(--text-heading);
+            font-size: 0.82rem;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .test-pass {
+            color: var(--accent-emerald);
+            font-weight: 600;
+            font-family: var(--font-mono);
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border-subtle);
+            padding: 2rem 0;
+            text-align: center;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-status {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="brand-container">
+            <div class="brand-logo">AI</div>
+            <div>
+                <div class="brand-title">AI Research Workbench</div>
+                <div class="brand-tag">Intelligent Systems Suite</div>
+            </div>
+        </div>
+
+        <div class="header-status">
+            <div class="status-pill">39/39 Verified Tests Passed</div>
+            <div class="header-links">
+                <a href="docs/architecture.md">Architecture</a>
+                <a href="docs/installation.md">Installation</a>
+                <a href="docs/validation-report.md">Audit Report</a>
+                <a href="https://github.com/maheswari9080/Python-Generative-AI-LangChain-Internship" target="_blank" rel="noopener">GitHub</a>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Overview Hero -->
+        <section class="hero">
+            <h1>Enterprise AI Research Workbench</h1>
+            <p>
+                An engineering-grade suite consisting of four independent, production-ready AI applications built for rigorous evaluation.
+                Each application adheres to strict architectural standards: schema validation via Pydantic v2, document-grounded semantic retrieval with hallucination guards, AST-sandboxed autonomous tool calling, and streaming conversational state management.
+            </p>
+            <div class="quick-launch-banner">
+                <div>
+                    <span style="color:#94a3b8;">$</span> <span>python launch.py --all</span>
+                </div>
+                <button class="copy-btn" onclick="copyToClipboard('python launch.py --all')">Copy Command</button>
+            </div>
+        </section>
+
+        <!-- Project Grid -->
+        <div class="grid-header">
+            <div class="grid-title">Subsystem Applications</div>
+            <div style="font-size:0.9rem; color:var(--text-muted);">4 Independent Runnable Modules</div>
+        </div>
+
+        <div class="projects-grid">
+
+            <!-- TASK 1 -->
+            <div class="project-card">
+                <div class="card-top">
+                    <div class="card-badge-row">
+                        <span class="task-tag tag-1">Task 1</span>
+                        <span class="port-badge">Port :8501</span>
+                    </div>
+                    <div class="card-title">Structured LLM Extraction Engine</div>
+                    <div class="card-desc">
+                        Converts unstructured textual invoices and resumes into strongly-typed Pydantic v2 objects with bounded self-repair retry loops and ISO 8601 validation.
+                    </div>
+
+                    <div class="flow-preview">
+                        <span class="flow-step">Raw Text</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">Prompt Template</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">LLM Engine</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">Pydantic v2</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">Corrective Loop</span>
+                    </div>
+
+                    <div class="tech-list">
+                        <span class="tech-pill">Pydantic v2</span>
+                        <span class="tech-pill">Google Gemini</span>
+                        <span class="tech-pill">OpenAI</span>
+                        <span class="tech-pill">Streamlit</span>
+                        <span class="tech-pill">Self-Correction</span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="command-bar">
+                        <span>streamlit run task1-structured-extractor/app.py</span>
+                        <button class="copy-btn" onclick="copyToClipboard('streamlit run task1-structured-extractor/app.py')">Copy</button>
+                    </div>
+                    <div class="action-row">
+                        <a href="http://localhost:8501" target="_blank" class="btn-launch btn-primary">Open Application</a>
+                        <a href="task1-structured-extractor/README.md" class="btn-launch btn-secondary">Documentation</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TASK 2 -->
+            <div class="project-card">
+                <div class="card-top">
+                    <div class="card-badge-row">
+                        <span class="task-tag tag-2">Task 2</span>
+                        <span class="port-badge">Port :8502</span>
+                    </div>
+                    <div class="card-title">Document Q&A Assistant (RAG)</div>
+                    <div class="card-desc">
+                        Ingests multi-page PDFs and text research papers, generates dense semantic embeddings in ChromaDB, and delivers answers with verified citations and anti-hallucination guards.
+                    </div>
+
+                    <div class="flow-preview">
+                        <span class="flow-step">PDF / TXT</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">Recursive Chunker</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">ChromaDB / Cosine</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">Grounded Synthesis</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">Citations</span>
+                    </div>
+
+                    <div class="tech-list">
+                        <span class="tech-pill">ChromaDB</span>
+                        <span class="tech-pill">pypdf</span>
+                        <span class="tech-pill">RecursiveTextSplitter</span>
+                        <span class="tech-pill">Cosine Similarity</span>
+                        <span class="tech-pill">Citation Guard</span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="command-bar">
+                        <span>streamlit run task2-rag-research/app.py</span>
+                        <button class="copy-btn" onclick="copyToClipboard('streamlit run task2-rag-research/app.py')">Copy</button>
+                    </div>
+                    <div class="action-row">
+                        <a href="http://localhost:8502" target="_blank" class="btn-launch btn-primary">Open Application</a>
+                        <a href="task2-rag-research/README.md" class="btn-launch btn-secondary">Documentation</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TASK 3 -->
+            <div class="project-card">
+                <div class="card-top">
+                    <div class="card-badge-row">
+                        <span class="task-tag tag-3">Task 3</span>
+                        <span class="port-badge">Console CLI</span>
+                    </div>
+                    <div class="card-title">Multi-Tool Autonomous AI Agent</div>
+                    <div class="card-desc">
+                        ReAct autonomous reasoning agent equipped with DuckDuckGo web search, an AST-safe mathematical calculator (no eval), and a path-canonicalized sandbox file reader.
+                    </div>
+
+                    <div class="flow-preview">
+                        <span class="flow-step">User Task</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">ReAct Loop</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">AST Calculator</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">Sandbox Reader</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">DDG Search</span>
+                    </div>
+
+                    <div class="tech-list">
+                        <span class="tech-pill">ReAct Loop</span>
+                        <span class="tech-pill">AST Sandbox</span>
+                        <span class="tech-pill">Path Isolation</span>
+                        <span class="tech-pill">DuckDuckGo Search</span>
+                        <span class="tech-pill">Audit Telemetry</span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="command-bar">
+                        <span>python task3-research-agent/main.py</span>
+                        <button class="copy-btn" onclick="copyToClipboard('python task3-research-agent/main.py')">Copy</button>
+                    </div>
+                    <div class="action-row">
+                        <button onclick="copyToClipboard('python task3-research-agent/main.py --task sample')" class="btn-launch btn-primary">Copy Benchmark CLI</button>
+                        <a href="task3-research-agent/README.md" class="btn-launch btn-secondary">Documentation</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TASK 4 -->
+            <div class="project-card">
+                <div class="card-top">
+                    <div class="card-badge-row">
+                        <span class="task-tag tag-4">Task 4</span>
+                        <span class="port-badge">Port :8504</span>
+                    </div>
+                    <div class="card-title">Full-Stack AI Conversation Studio</div>
+                    <div class="card-desc">
+                        Interactive conversational environment with streaming token generation, session isolation, temperature control, and unified integration bridges to Task 2 RAG and Task 3 Agent.
+                    </div>
+
+                    <div class="flow-preview">
+                        <span class="flow-step">st.chat_message</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">Session State</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">Token Streaming</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">RAG / Agent Bridge</span>
+                        <span class="flow-arrow">→</span>
+                        <span class="flow-step">JSON / MD Export</span>
+                    </div>
+
+                    <div class="tech-list">
+                        <span class="tech-pill">Streamlit 1.35+</span>
+                        <span class="tech-pill">Token Streaming</span>
+                        <span class="tech-pill">Session Isolation</span>
+                        <span class="tech-pill">Bridge Orchestration</span>
+                        <span class="tech-pill">Export Tools</span>
+                    </div>
+                </div>
+
+                <div class="card-footer">
+                    <div class="command-bar">
+                        <span>streamlit run task4-conversation-studio/app.py</span>
+                        <button class="copy-btn" onclick="copyToClipboard('streamlit run task4-conversation-studio/app.py')">Copy</button>
+                    </div>
+                    <div class="action-row">
+                        <a href="http://localhost:8504" target="_blank" class="btn-launch btn-primary">Open Application</a>
+                        <a href="task4-conversation-studio/README.md" class="btn-launch btn-secondary">Documentation</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Verification Ledger Table -->
+        <section class="audit-section">
+            <h2>Automated Verification & Test Audit Ledger</h2>
+            <p style="color:var(--text-muted); margin-bottom: 1.25rem;">
+                All subsystems undergo rigorous regression testing including schema bounds, path traversal attacks, division-by-zero traps, and citation verification.
+            </p>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Subsystem Module</th>
+                            <th>Target Capabilities Verified</th>
+                            <th>Test Count</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Task 1: Structured Extractor</strong></td>
+                            <td>Pydantic v2 schemas, date normalization, line-item rounding, bounded corrective repair retry simulation</td>
+                            <td>11 Tests</td>
+                            <td><span class="test-pass">PASSED (100%)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Task 2: Grounded RAG</strong></td>
+                            <td>PDF multi-page loader, empty file rejection, recursive chunking, vector indexing, citation attribution, unsupported question gating</td>
+                            <td>9 Tests</td>
+                            <td><span class="test-pass">PASSED (100%)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Task 3: Autonomous Agent</strong></td>
+                            <td>AST math parser safety (rejection of import os / eval), sandbox path traversal prevention, DDG search, ReAct compound resolution, timeout guards</td>
+                            <td>11 Tests</td>
+                            <td><span class="test-pass">PASSED (100%)</span></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Task 4: Conversation Studio</strong></td>
+                            <td>Multi-turn session isolation, message serialization, token estimation heuristic, reset behavior, streaming generator, RAG & Agent bridges</td>
+                            <td>8 Tests</td>
+                            <td><span class="test-pass">PASSED (100%)</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p><strong>AI Research Workbench</strong> · Intelligent Systems Suite</p>
+            <p style="margin-top:4px; font-size:0.8rem;">Clean Light Research Laboratory Aesthetic · Pure Modern Python 3.12 · Zero-Dependency Offline Mocks Available</p>
+        </div>
+    </footer>
+
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert("Copied to clipboard: " + text);
+            }).catch(function(err) {
+                prompt("Copy the command below:", text);
+            });
+        }
+    </script>
+</body>
+</html>
