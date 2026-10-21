@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f8fafc"/>
+    </linearGradient>
+    <filter id="shadow2" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#0f172a" flood-opacity="0.05"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="560" fill="url(#bgGrad2)"/>
+
+  <!-- Section Title -->
+  <text x="60" y="55" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="28" font-weight="800" fill="#0f172a">Subsystem Architecture &amp; Data Pipeline</text>
+  <text x="60" y="85" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="15" fill="#64748b">Defensive schema boundaries, verifiable citations, AST-sandboxed tool execution, and session-isolated chat</text>
+
+  <!-- Panel 1: Task 1 -->
+  <g transform="translate(60, 115)" filter="url(#shadow2)">
+    <rect width="520" height="195" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="520" height="4" rx="2" fill="#2563eb"/>
+    <text x="22" y="32" font-family="monospace" font-size="12" font-weight="700" fill="#2563eb">TASK 1: STRUCTURED PROMPT PIPELINE</text>
+    <text x="22" y="60" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="16" font-weight="700" fill="#0f172a">Invoices &amp; Resumes Extraction Engine</text>
+    <text x="22" y="85" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#475569">
+      • Pydantic v2 schemas: strict typing, ISO 8601 dates, non-negative amounts
+    </text>
+    <text x="22" y="108" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#475569">
+      • Line-item consistency: auto-checks (quantity × unit_price = total)
+    </text>
+    <text x="22" y="131" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#475569">
+      • Bounded Self-Repair: intercepts validation errors, repairs within 3 cycles
+    </text>
+    <rect x="22" y="152" width="130" height="24" rx="4" fill="#eff6ff"/>
+    <text x="30" y="168" font-family="monospace" font-size="11" font-weight="600" fill="#2563eb">11/11 Tests Passed</text>
+  </g>
+
+  <!-- Panel 2: Task 2 -->
+  <g transform="translate(620, 115)" filter="url(#shadow2)">
+    <rect width="520" height="195" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="520" height="4" rx="2" fill="#0d9488"/>
+    <text x="22" y="32" font-family="monospace" font-size="12" font-weight="700" fill="#0d9488">TASK 2: DOCUMENT GROUNDED RAG</text>
+    <text x="22" y="60" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="16" font-weight="700" fill="#0f172a">Semantic Vector Retrieval &amp; Anti-Hallucination</text>
+    <text x="22" y="85" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#475569">
+      • Ingestion: multi-page PDF &amp; TXT loader retaining page metadata
+    </text>
+    <text x="22" y="108" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#475569">
+      • Chunking: RecursiveCharacterTextSplitter with token overlap
+    </text>
+    <text x="22" y="131" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#475569">
+      • Dual Vector Store: ChromaDB + zero-dependency in-memory Cosine store
+    </text>
+    <rect x="22" y="152" width="130" height="24" rx="4" fill="#f0fdfa"/>
+    <text x="30" y="168" font-family="monospace" font-size="11" font-weight="600" fill="#0d9488">9/9 Tests Passed</text>
+  </g>
+
+  <!-- Panel 3: Task 3 -->
+  <g transform="translate(60, 330)" filter="url(#shadow2)">
+    <rect width="520" height="195" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="520" height="4" rx="2" fill="#d97706"/>
+    <text x="22" y="32" font-family="monospace" font-size="12" font-weight="700" fill="#b45309">TASK 3: MULTI-TOOL AUTONOMOUS AGENT</text>
+    <text x="22" y="60" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="16" font-weight="700" fill="#0f172a">ReAct Loop &amp; Defense-in-Depth Sandbox</text>
+    <text x="22" y="85" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#475569">
+      • Safe Math Calculator: AST node walker, strictly blocks eval() / exec()
+    </text>
+    <text x="22" y="108" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#475569">
+      • Sandboxed File Reader: Path canonicalization prevents ../ traversal
+    </text>
+    <text x="22" y="131" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#475569">
+      • DuckDuckGo Search: snippet extraction with verified URL citations
+    </text>
+    <rect x="22" y="152" width="130" height="24" rx="4" fill="#fef3c7"/>
+    <text x="30" y="168" font-family="monospace" font-size="11" font-weight="600" fill="#b45309">11/11 Tests Passed</text>
+  </g>
+
+  <!-- Panel 4: Task 4 -->
+  <g transform="translate(620, 330)" filter="url(#shadow2)">
+    <rect width="520" height="195" rx="10" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"/>
+    <rect x="0" y="0" width="520" height="4" rx="2" fill="#7c3aed"/>
+    <text x="22" y="32" font-family="monospace" font-size="12" font-weight="700" fill="#7e22ce">TASK 4: INTERACTIVE CONVERSATION STUDIO</text>
+    <text x="22" y="60" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="16" font-weight="700" fill="#0f172a">Streaming Chat &amp; Multi-Mode Orchestrator</text>
+    <text x="22" y="85" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#475569">
+      • Streamlit Chat: st.chat_message, st.chat_input, and session isolation
+    </text>
+    <text x="22" y="108" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#475569">
+      • Streaming Token Cadence: natural generator yielding words seamlessly
+    </text>
+    <text x="22" y="131" font-family="-apple-system, BlinkMacSystemFont, sans-serif" font-size="13" fill="#475569">
+      • Tri-Mode Bridge: General Chat ➔ Grounded RAG ➔ Autonomous Agent
+    </text>
+    <rect x="22" y="152" width="130" height="24" rx="4" fill="#f3e8ff"/>
+    <text x="30" y="168" font-family="monospace" font-size="11" font-weight="600" fill="#7e22ce">8/8 Tests Passed</text>
+  </g>
+</svg>
